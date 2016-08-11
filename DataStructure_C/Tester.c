@@ -1,23 +1,16 @@
 #include<stdio.h>
-#include"List.h"
+#include"DuNode.h"
 
 int main() {
-	LNode *p;
-	List L;
+	DNode *p;
+	//List L;
 
-	L = InitList();
-	ListInsert(L, 1, 3);
-	ListInsert(L, 1, 2);
-	p=CreateNode(123);
-	ListNodeInsert(L, 2, p);
-	printf("%d\n", GetListElem(L,3));
-	printf("data:%d,next:%x\n", p->data, p->next);
+	p = CreateDuNode(33);
 	
-
-	printf("%d\n", ListDelete(L,2));
-	ClearList(&L);
-
-	printf("%d\n", ListEmpty(L));
+	
+	printf("data:%d,prior:%x,next:%x\n", p->data,p->prior,p->next);
+	printf("data:%d\n", DeleteDuNode(&p));
+	
 
 	getchar();
 	return 0;
