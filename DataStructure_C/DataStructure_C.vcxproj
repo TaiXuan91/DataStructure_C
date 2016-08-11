@@ -120,6 +120,7 @@
   <ItemGroup>
     <ClCompile Include="List.c" />
     <ClCompile Include="ListNode.c" />
+    <ClCompile Include="PredefinedValueAndType.c" />
     <ClCompile Include="README.c" />
     <ClCompile Include="Tester.c" />
   </ItemGroup>
