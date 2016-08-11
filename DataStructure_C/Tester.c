@@ -10,7 +10,7 @@ int main() {
 	ListInsert(L, 1, 2);
 	p=CreateNode(123);
 	ListNodeInsert(L, 2, p);
-	printf("%d\n", ListEmpty(L));
+	printf("%d\n", GetListElem(L,3));
 	printf("data:%d,next:%x\n", p->data, p->next);
 	
 

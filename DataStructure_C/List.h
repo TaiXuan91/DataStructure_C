@@ -75,5 +75,8 @@ void ListNodeInsert(List L,int i,LNode *p);
 //Insert node which p point into L. 
 //Before the node whose position is i in original L.
 
+ElemType GetListElem(List L, int i);
+//Return the data of node i.
+
 
 

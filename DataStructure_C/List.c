@@ -160,3 +160,7 @@ void ListNodeInsert(List L,int i,LNode *p) {
 	p->next = q->next;
 	q->next = p;
 }
+
+ElemType GetListElem(List L, int i) {
+	return GetNode(L, i)->data;
+}
