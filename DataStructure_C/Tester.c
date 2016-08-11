@@ -1,11 +1,24 @@
 #include<stdio.h>
-#include"ListNode.h"
+#include"List.h"
 
 int main() {
 	LNode *p;
-	p = CreateNode(112);
+	List L;
+
+	L = InitList();
+	ListInsert(L, 1, 3);
+	ListInsert(L, 1, 2);
+	p=CreateNode(123);
+	ListNodeInsert(L, 2, p);
+	printf("%d\n", ListEmpty(L));
 	printf("data:%d,next:%x\n", p->data, p->next);
-	printf("data:%d", FreeNode(&p));
+	
+
+	printf("%d\n", ListDelete(L,2));
+	ClearList(&L);
+
+	printf("%d\n", ListEmpty(L));
+
 	getchar();
 	return 0;
 }

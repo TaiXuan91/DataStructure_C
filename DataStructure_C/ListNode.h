@@ -10,8 +10,8 @@
 //Types
 typedef struct ListNode{
 	ElemType data;
-	struct LNode * next;
-}LNode,*List;
+	struct ListNode * next;
+}LNode;
 //List point the head node of the list.
 //Head node isn't the first node in the list,but point the first of the list.
 //Head node can simplify the deletion of the first node.
