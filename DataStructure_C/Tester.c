@@ -1,7 +1,11 @@
 #include<stdio.h>
+#include"ListNode.h"
 
 int main() {
-	printf("Hello World!");
+	LNode *p;
+	p = CreateNode(112);
+	printf("data:%d,next:%x\n", p->data, p->next);
+	printf("data:%d", FreeNode(&p));
 	getchar();
 	return 0;
 }

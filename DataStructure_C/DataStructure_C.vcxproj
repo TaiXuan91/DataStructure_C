@@ -118,7 +118,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ListNode.c" />
+    <ClCompile Include="README.c" />
     <ClCompile Include="Tester.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ListNode.h" />
+    <ClInclude Include="PredefinedValueAndType.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
