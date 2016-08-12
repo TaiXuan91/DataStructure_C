@@ -162,3 +162,19 @@ LNode *ListNodeTear(List L,int i) {
 		return NULL;
 	}
 }
+
+List ListCut(List L, int i) {
+	List Lhalf;
+	LNode *p;
+
+	p=GetPriorNode(L, i);
+	Lhalf = InitList();
+	Lhalf->next = p->next;
+	p->next = NULL;
+	return Lhalf;
+}
+
+void ListAppend(List L1, List L2) {
+	GetNode(L1, INT_MAX)->next = L2->next;
+	L2->next = NULL;
+}

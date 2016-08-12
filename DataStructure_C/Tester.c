@@ -2,7 +2,7 @@
 #include"List.h"
 
 int main() {
-	List L;
+	List L,L0;
 	LNode *p;
 
 	L = InitList();
@@ -12,7 +12,8 @@ int main() {
 	ListInsert(L, 4, 14);
 
 	p=ListNodeTear(L, 3);
-	
+	L0 = ListCut(L, 3);
+	ListAppend(L0, L);
 	printf("data:%d,prior:,next:%x\n", p->data,p->next);
 
 	//ElemType e;

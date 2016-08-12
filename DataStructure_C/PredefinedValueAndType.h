@@ -4,6 +4,7 @@
 
 #include<stdbool.h>
 #include<stdlib.h>
+#include<limits.h>
 
 //Broad-spectrum element.
 typedef enum PredefinedTypesOfElem { 

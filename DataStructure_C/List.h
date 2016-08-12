@@ -39,6 +39,14 @@ void ListTraverse(List L, ElemType(*visit)());
 //Status visti(ElemType e);
 //Use visit() with every node's data.
 
+List ListCut(List L, int i);
+//Cut list before node i.
+//Return the lower haif.
+
+void ListAppend(List L1, List L2);
+//Append L2 to L1.
+//Set L2 an empty list.
+
 //**List&Element operations
 void ListInsert(List L, int i, ElemType e);
 //insert a node before the node whose position is i.
@@ -52,6 +60,7 @@ ElemType ListDelete(List L, int i);
 
 ElemType GetListElem(List L, int i);
 //Return the data of node i.
+//If i bigger than length of the list,return the last one.
 
 int LocateElem(List L, ElemType e, bool(*compare)());
 //For ewery node p in L.If compare(p->data,e)return turn,return the position of p.
