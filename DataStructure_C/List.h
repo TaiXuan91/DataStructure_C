@@ -17,6 +17,7 @@ typedef struct ListNode *List;
 //The data of the head node should be ElemTypeEmpty.
 
 //Operations
+//**List operations
 List InitList();
 //Create an empty list.
 
@@ -34,6 +35,40 @@ int ListLength(L);
 //Return the length of the list.
 //The length of the list that just have a head node.
 
+void ListTraverse(List L, ElemType(*visit)());
+//Status visti(ElemType e);
+//Use visit() with every node's data.
+
+//**List&Element operations
+void ListInsert(List L, int i, ElemType e);
+//insert a node before the node whose position is i.
+//(i>0,the head node's position is 0.)
+//If i>length of the list,append the LNode to the tail.
+
+ElemType ListDelete(List L, int i);
+//Delete the node on position i.Return its data .
+//i!=0.
+//If i is bigger than the length of the list,e equal to ElemTypeEmpty.
+
+ElemType GetListElem(List L, int i);
+//Return the data of node i.
+
+int LocateElem(List L, ElemType e, bool(*compare)());
+//For ewery node p in L.If compare(p->data,e)return turn,return the position of p.
+//Only return  first node to meet the requirements.
+//bool compare(ElemType u,ElemType e) //u is data part of Node.
+
+//**List&LNode operations
+void ListNodeInsert(List L, int i, LNode *p);
+//Insert node which p point into L. 
+//Before the node whose position is i in original L.
+//Also can be used to link two nod.
+//Like this:ListNodeInsert(p,1,q);//p,q are pointers point LNode.
+
+LNode *ListNodeTear(List L, int i);
+//If i node in L,delete i node from l.
+//But don't free the node point.Return its address.
+
 LNode *GetPriorNode(List L,int i);
 //Return the address of the prior of the node on position i in the list.
 //i>=0.Can't get head node's prior.
@@ -46,35 +81,11 @@ LNode *GetNode(List L, int i);
 LNode *GetNextNode(List L, int i);
 //Return the address of the next of the node on position i in the list.
 
-void ListInsert(List L, int i, ElemType e);
-//insert a node before the node whose position is i.
-//(i>0,the head node's position is 0.)
-//If i>length of the list,append the LNode to the tail.
-
-ElemType ListDelete(List L, int i);
-//Delete the node on position i.Return its data .
-//i!=0.
-//If i is bigger than the length of the list,e equal to ElemTypeEmpty.
-
 int LocateNode(List L, LNode *p);
 //return the position of the node in the list.
 //If there isn't p in L.Return 0.
 
-int LocateElem(List L, ElemType e, bool(*compare)());
-//For ewery node p in L.If compare(p->data,e)return turn,return the position of p.
-//Only return  first node to meet the requirements.
-//bool compare(ElemType u,ElemType e) //u is data part of Node.
 
-void ListTraverse(List L, int (*visit)());
-//Status visti(ElemType e);
-//Use visti() with every node's data.
-
-void ListNodeInsert(List L,int i,LNode *p);
-//Insert node which p point into L. 
-//Before the node whose position is i in original L.
-
-ElemType GetListElem(List L, int i);
-//Return the data of node i.
 
 
 

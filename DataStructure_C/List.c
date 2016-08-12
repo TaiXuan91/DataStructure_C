@@ -122,7 +122,7 @@ int LocateElem(List L, ElemType e, bool(*compare)()) {
 
 }
 
-void ListTraverse(List L, int(*visit)()) {
+void ListTraverse(List L,ElemType (*visit)()) {
 
 	if (!ListEmpty(L)) {
 		L = L->next;
@@ -146,4 +146,19 @@ void ListNodeInsert(List L,int i,LNode *p) {
 
 ElemType GetListElem(List L, int i) {
 	return GetNode(L, i)->data;
+}
+
+LNode *ListNodeTear(List L,int i) {
+	LNode *p,*q;
+
+	p = GetPriorNode(L, i);
+	if (p!=NULL) {
+		q = p->next;
+		p->next = q->next;
+		q->next = NULL;
+		return q;
+	}
+	else{
+		return NULL;
+	}
 }
