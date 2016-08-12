@@ -30,6 +30,9 @@
     <ClCompile Include="DuNode.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="PredefinedValueAndType.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PredefinedValueAndType.h">

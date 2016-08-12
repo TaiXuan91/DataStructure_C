@@ -2,8 +2,6 @@
 
 //DuNode has two pointer.It's used in BiTree and doubly linked list.
 
-#include<stdlib.h>
-
 #include"PredefinedValueAndType.h"
 
 //Types

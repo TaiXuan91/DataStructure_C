@@ -7,8 +7,6 @@
 //If you need Sequence List, you can use SequenceList.h & SequenceList.c.
 //Tip2:This is singly linked list.Doubly linked list see DuList.h & DuList.c.
 
-#include<stdbool.h>
-
 #include"ListNode.h"
 
 //Types

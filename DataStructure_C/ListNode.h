@@ -3,8 +3,6 @@
 //This part defined  the structure of node of the list.
 //ps:I think  node is also one type data structure.
 
-#include<stdlib.h>
-
 #include"PredefinedValueAndType.h"
 
 //Types

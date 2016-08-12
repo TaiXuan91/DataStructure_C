@@ -8,9 +8,6 @@ List InitList() {
 }
 
 void DestroyList(List *L) {
-
-	if (L == NULL) exit(INFEASIBLE);
-
 	LNode *head = *L;
 	LNode *p;
 
@@ -31,9 +28,6 @@ void ClearList(List *L) {
 }
 
 bool ListEmpty(List L) {
-
-	if (L == NULL) exit(INFEASIBLE);
-
 	if (L->next == NULL)
 		return true;
 	else
@@ -41,9 +35,6 @@ bool ListEmpty(List L) {
 }
 
 int ListLength(List L) {
-
-	if (L == NULL) exit(INFEASIBLE);
-
 	LNode *p=L;
 	int i=0;
 	while (p->next != NULL) {
@@ -54,21 +45,18 @@ int ListLength(List L) {
 }
 
 LNode *GetPriorNode(List L, int i) {
-	LNode *p = L;
-	int j;
-
-	if (L == NULL) exit(INFEASIBLE);
-	if (i <= 0) exit(INFEASIBLE);//Can't get head node's prior.
-
-	for (j = 0; (j < i - 1) && (p->next); j++) {
-		p = p->next;
-	}
-	
-	return p;
+	return (i > 0) ? GetNode(L, i - 1) : NULL;
 }
 
 LNode *GetNode(List L,int i){
-	return GetPriorNode(L,i)->next;
+	LNode *p = L;
+	int j;
+
+	for (j = 0; (j <i) && (p->next != NULL); j++) {
+		p = p->next;
+	}
+
+	return p;
 }
 
 LNode *GetNextNode(List L, int i) {
@@ -101,7 +89,6 @@ ElemType ListDelete(List L, int i) {
 
 int LocateNode(List L, LNode *p) {
 
-	if (L == NULL) exit(INFEASIBLE);
 
 	int i = 0;
 	while (L->next != NULL) {
@@ -114,8 +101,6 @@ int LocateNode(List L, LNode *p) {
 }
 
 int LocateElem(List L, ElemType e, bool(*compare)()) {
-
-	if (L == NULL) exit(INFEASIBLE);
 
 	int i=0;
 
@@ -138,8 +123,6 @@ int LocateElem(List L, ElemType e, bool(*compare)()) {
 }
 
 void ListTraverse(List L, int(*visit)()) {
-
-	if (L == NULL) exit(INFEASIBLE);
 
 	if (!ListEmpty(L)) {
 		L = L->next;
