@@ -31,7 +31,9 @@ void TX_Stack_Push(TX_Stack_Stack *s, TX_Anytype_AnytypeElement e){
 //Pop a element
 TX_Anytype_AnytypeElement TX_Stack_Pop(TX_Stack_Stack *s){
     if(TX_Stack_IsEmpty(s)){
-        return TX_Anytype_NoneElement();}
+        TX_Anytype_AnytypeElement e;
+        e.type = TX_NONE;
+        return e;}
     else{
         s->top -= 1;
         return s->stack[(s->top)+1];
