@@ -4,8 +4,15 @@
 #include "TX_Anytype.h"
 #include "TX_Stack.h"
 
+void Test_Stack();
+
 int main(){
-    bool x =true;
+    Test_Stack();
+    getchar();
+    return 0;
+}
+
+void Test_Stack(){
     TX_Stack_Stack *myStack = TX_Stack_Init();
     TX_Anytype_AnytypeElement e;
     // e.data.integer_value = 12;
@@ -45,11 +52,4 @@ int main(){
     e = TX_Stack_Pop(myStack);
     printf("%d\n",e.data.integer_value);
     printf("%d\n",e.type);
-    for(int i=0; i<10; i++){
-        printf("%d\n",i);
-        printf("%d\n",x);
-    }
-    getchar();
-    return 0;
 }
-
