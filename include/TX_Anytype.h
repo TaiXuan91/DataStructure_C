@@ -39,5 +39,10 @@ typedef struct TX_Anytype_AnytypeElement{
 // be used to show anytype element
 void TX_Anytype_ShowElement(TX_Anytype_AnytypeElement e, char* buffer);
 
+// Get None element
+TX_Anytype_AnytypeElement TX_Anytype_GetNone();
+
+// show one on one line
+void TX_Anytype_ShowElementLine(TX_Anytype_AnytypeElement e);
 
 #endif

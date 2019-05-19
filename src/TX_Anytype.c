@@ -36,3 +36,17 @@ void TX_Anytype_ShowElement(TX_Anytype_AnytypeElement e, char* buffer){
         break;
     }
 }
+
+// Get None element
+TX_Anytype_AnytypeElement TX_Anytype_GetNone(){
+    TX_Anytype_AnytypeElement e;
+    e.data.integer_value = 0;
+    e.type = TX_NONE;
+    return e;
+}
+
+void TX_Anytype_ShowElementLine(TX_Anytype_AnytypeElement e){
+    char buffer[50];
+    TX_Anytype_ShowElement(e, buffer);
+    printf("Element: %s\n", buffer);
+}

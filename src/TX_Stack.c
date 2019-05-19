@@ -30,8 +30,7 @@ void TX_Stack_Push(TX_Stack_Stack *s, TX_Anytype_AnytypeElement e){
         s->stack = (TX_Anytype_AnytypeElement *)realloc(s->stack, s->stack_size);
     }
     // Prevent assignment errors
-    s->stack[s->top].data = e.data;
-    s->stack[s->top].type = e.type;
+    s->stack[s->top] = e;
 }
 
 //Pop a element

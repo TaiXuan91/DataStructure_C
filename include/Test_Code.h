@@ -7,4 +7,7 @@
 
 // Test the stack module.
 bool Test_TX_Stack();
+
+// Test the list module.
+bool Test_TX_List();
 #endif

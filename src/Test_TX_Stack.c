@@ -4,7 +4,9 @@
 
 #include "Test_Code.h"
 
+#include "TX_Anytype.h"
 #include "TX_Stack.h"
+#include "TX_List.h"
 
 bool Test_TX_Stack(){
     TX_Stack_Stack *myStack = TX_Stack_Init();
