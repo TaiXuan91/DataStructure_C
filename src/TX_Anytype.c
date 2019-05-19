@@ -1,10 +1,38 @@
+#include <stdio.h>
+#include <string.h>
+
 #include "TX_Anytype.h"
 
-// // no need for a None type constructor
-// // just set type to TX_NONE
-// TX_Anytype_AnytypeElement TX_Anytype_NoneElement(){
-//     TX_Anytype_AnytypeElement e;
-//     e.data.bool_value = false;
-//     e.type = TX_NONE;
-//     return e;
-// }
+void TX_Anytype_ShowElement(TX_Anytype_AnytypeElement e, char* buffer){
+    switch (e.type)
+    {
+    case TX_BOOL:
+        if (e.data.bool_value){
+            strcpy(buffer, "true");
+        }
+        else
+        {
+            strcpy(buffer, "false");
+        }
+        break;
+    case TX_CHAR:
+        sprintf(buffer, "%c", e.data.char_value);
+        break;
+    case TX_FLOAT:
+        sprintf(buffer, "%f", e.data.float_value);
+        break;
+    case TX_INTEGER:
+        sprintf(buffer, "%d", e.data.integer_value);
+        break;
+    case TX_VOID_POINTER:
+        // sprintf(buffer, "%x", e.data.void_pointer_value);
+        sprintf(buffer, "(Pointer)");
+        break;
+    case TX_NONE:
+        strcpy(buffer, "(None)");
+        break;
+    default:
+        strcpy(buffer, "(ERROR!!!)");
+        break;
+    }
+}

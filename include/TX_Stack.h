@@ -7,7 +7,7 @@
 #ifndef TX_STACK
 #define TX_STACK
 
-#define TX_BASE_STACK_SIZE 100
+#define TX_BASE_STACK_SIZE 20
 
 typedef struct TX_Stack_Stack
 {
@@ -31,5 +31,8 @@ TX_Anytype_AnytypeElement TX_Stack_Pop(TX_Stack_Stack *s);
 
 //Determines whether it is empty stack
 bool TX_Stack_IsEmpty(TX_Stack_Stack *s);
+
+// Return the number of elements in stack
+size_t TX_Stack_MeasureSize(TX_Stack_Stack *s);
 
 #endif

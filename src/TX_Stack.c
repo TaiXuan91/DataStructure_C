@@ -23,25 +23,36 @@ void TX_Stack_Destroy(TX_Stack_Stack *s){
 
 //Push a element
 void TX_Stack_Push(TX_Stack_Stack *s, TX_Anytype_AnytypeElement e){
-    // !!! No check about full stack. should relloc
     s->top += 1;
-    s->stack[s->top] = e;
+    // overflow check
+    if(s->top>=s->stack_size){
+        s->stack_size = s->stack_size+TX_BASE_STACK_SIZE;
+        s->stack = (TX_Anytype_AnytypeElement *)realloc(s->stack, s->stack_size);
+    }
+    // Prevent assignment errors
+    s->stack[s->top].data = e.data;
+    s->stack[s->top].type = e.type;
 }
 
 //Pop a element
 TX_Anytype_AnytypeElement TX_Stack_Pop(TX_Stack_Stack *s){
+    TX_Anytype_AnytypeElement e;
     if(TX_Stack_IsEmpty(s)){
-        TX_Anytype_AnytypeElement e;
+        e.data.integer_value = 0;
         e.type = TX_NONE;
-        return e;}
-    else{
-        s->top -= 1;
-        return s->stack[(s->top)+1];
     }
-
+    else{
+        e = s->stack[(s->top)];
+        s->top -= 1;
+    }
+    return e;
 }
 
 //Determines whether it is empty stack
 bool TX_Stack_IsEmpty(TX_Stack_Stack *s){
     return (s->top<=0);
+}
+
+size_t TX_Stack_MeasureSize(TX_Stack_Stack *s){
+    return s->top;
 }

@@ -22,7 +22,7 @@ typedef union TX_Anytype_Metadata
     */
     bool bool_value;
     int integer_value;
-    float float_value;
+    float float_value; //
     char char_value;
     void *void_pointer_value;
 }TX_Anytype_Metadata;
@@ -36,8 +36,8 @@ typedef struct TX_Anytype_AnytypeElement{
     TX_Anytype_Typenumber type;
 }TX_Anytype_AnytypeElement;
 
-// return None
-TX_Anytype_AnytypeElement TX_Anytype_NoneElement();
+// be used to show anytype element
+void TX_Anytype_ShowElement(TX_Anytype_AnytypeElement e, char* buffer);
 
 
 #endif
