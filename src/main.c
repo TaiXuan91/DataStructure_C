@@ -7,7 +7,8 @@
 
 int main(){
     // Test_TX_Stack();
-    Test_TX_List();
+    // Test_TX_List();
+    Test_TX_Sort();
     getchar();
     return 0;
 }

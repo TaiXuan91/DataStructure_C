@@ -10,4 +10,7 @@ bool Test_TX_Stack();
 
 // Test the list module.
 bool Test_TX_List();
+
+// Test the sort module.
+bool Test_TX_Sort();
 #endif
