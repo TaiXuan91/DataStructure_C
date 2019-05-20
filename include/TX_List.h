@@ -20,6 +20,9 @@ typedef struct  TX_List_List
     /* Linked list data structure */
     // as head node
     size_t length;
+    // If the type is none, this is a generic list.
+    // other wise type is the type of every node in the list.
+    TX_Anytype_Typenumber type; 
     TX_List_Node *head;
 }TX_List_List;
 

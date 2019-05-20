@@ -6,8 +6,8 @@
 #include "Test_Code.h"
 
 int main(){
-    Test_TX_Stack();
-    // Test_TX_List();
+    // Test_TX_Stack();
+    Test_TX_List();
     getchar();
     return 0;
 }

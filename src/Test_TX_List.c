@@ -73,5 +73,22 @@ bool Test_TX_List(){
     TX_List_Insert(anothrList, e, 1);
     TX_List_MergeTwoLists(myList, anothrList);
     TX_List_ShowList(myList);
+    printf("Test merge different type\n");
+    anothrList = TX_List_Init();
+    e.data.float_value = 12.24;
+    e.type = TX_FLOAT;
+    TX_List_Append(anothrList, e);
+    e.data.char_value = 'A';
+    e.type = TX_CHAR;
+    TX_List_Append(anothrList, e);
+    e.data.integer_value = 14;
+    e.type = TX_INTEGER;
+    TX_List_Append(anothrList, e);
+    e.data.integer_value = 15;
+    e.type = TX_INTEGER;
+    TX_List_Insert(anothrList, e, 1);
+    myList->type = TX_INTEGER;
+    TX_List_MergeTwoLists(myList, anothrList);
+    TX_List_ShowList(myList);
     return true;
 }

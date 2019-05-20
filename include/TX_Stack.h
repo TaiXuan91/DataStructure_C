@@ -7,7 +7,7 @@
 #ifndef TX_STACK
 #define TX_STACK
 
-#define TX_BASE_STACK_SIZE 2
+#define TX_BASE_STACK_SIZE 20
 
 typedef struct TX_Stack_Stack
 {

@@ -10,8 +10,10 @@
 TX_List_List *TX_List_Init(){
     TX_List_List *l = (TX_List_List *) malloc(sizeof(TX_List_List));
     l->length = 0;
+    l->type = TX_NONE;
     // l->next = NULL;
     // Initialize the head node 
+    // Check the type only when enqueued
     TX_List_Node *headnode = (TX_List_Node *)malloc(sizeof(TX_List_Node));
     headnode->data = TX_Anytype_GetNone();
     headnode->next = NULL;
@@ -32,6 +34,11 @@ void TX_List_Destroy(TX_List_List *l){
 
 // Insert a node into p position
 void TX_List_Insert(TX_List_List *l, TX_Anytype_AnytypeElement e, size_t p){
+    // check type
+    if (l->type==TX_NONE){;}
+    else{
+        e.type = l->type;
+    }
     // if p>l->length
     if (p>l->length){
         TX_List_Append(l, e);
@@ -90,6 +97,11 @@ void TX_List_Delete(TX_List_List *l, size_t p){
 
 // Append
 void TX_List_Append(TX_List_List *l, TX_Anytype_AnytypeElement e){
+    // check type
+    if (l->type==TX_NONE){;}
+    else{
+        e.type = l->type;
+    }
     TX_List_Node *index = l->head;
     while(index->next!=NULL){
         index = index->next;
@@ -103,6 +115,11 @@ void TX_List_Append(TX_List_List *l, TX_Anytype_AnytypeElement e){
 
 // Prepend
 void TX_List_Preppend(TX_List_List *l, TX_Anytype_AnytypeElement e){
+    // check type
+    if (l->type==TX_NONE){;}
+    else{
+        e.type = l->type;
+    }
     TX_List_Node *head = l->head;
     TX_List_Node *newnode = (TX_List_Node *)malloc(sizeof(TX_List_Node));
     newnode->data = e;
@@ -136,6 +153,15 @@ void TX_List_DeleteLast(TX_List_List *l){
 
 // merge two list by input sequence
 void TX_List_MergeTwoLists(TX_List_List *l1, TX_List_List *l2){
+    // check type
+    if (l1->type==TX_NONE){;}
+    else{
+        TX_List_Node *checktemp = l2->head->next;
+        while(checktemp!=NULL){
+            checktemp->data.type = l1->type;
+            checktemp = checktemp->next;
+        }
+    }
     TX_List_Node *index = l1->head;
     while(index->next!=NULL){
         index = index->next;
@@ -160,7 +186,7 @@ void TX_List_ShowList(TX_List_List *l){
     printf("-----------\n");
     printf("List:\n");
     TX_List_Traverse(l, TX_Anytype_ShowElementLine);
-    printf("----------\n");
+    printf("-----------\n");
 }
 
 // is list empty
