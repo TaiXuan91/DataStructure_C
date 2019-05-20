@@ -1,4 +1,5 @@
 #include <stddef.h>
+#include <stdbool.h>
 
 #include "TX_Anytype.h"
 
@@ -58,5 +59,8 @@ void TX_List_Traverse(TX_List_List *l, void (*f)(TX_Anytype_AnytypeElement e));
 
 // Show the List
 void TX_List_ShowList(TX_List_List *l);
+
+// is list empty
+bool TX_List_IsEmpty(TX_List_List *l);
 
 #endif

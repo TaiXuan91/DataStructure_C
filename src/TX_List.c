@@ -163,3 +163,12 @@ void TX_List_ShowList(TX_List_List *l){
     printf("----------\n");
 }
 
+// is list empty
+bool TX_List_IsEmpty(TX_List_List *l){
+    if(l->length<=0){
+        return true;
+    }
+    else{
+        return false;
+    }
+}

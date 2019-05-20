@@ -13,6 +13,7 @@ bool Test_TX_List(){
     myList = TX_List_Init();
     TX_Anytype_AnytypeElement e;
     printf("Begin List test!\n");
+    printf("Is empty? %d\n",TX_List_IsEmpty(myList));
     e.data.integer_value = 2252;
     e.type = TX_INTEGER;
     TX_List_Append(myList, e);
@@ -29,6 +30,7 @@ bool Test_TX_List(){
     e.type = TX_INTEGER;
     TX_List_Append(myList, e);
     TX_List_ShowList(myList);
+    printf("Is empty? %d\n",TX_List_IsEmpty(myList));
     printf("get second element\n");
     e = TX_List_GetNodeValue(myList, 2);
     TX_Anytype_ShowElementLine(e);
