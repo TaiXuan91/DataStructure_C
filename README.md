@@ -3,3 +3,10 @@
 轻量级列表的实现。接口设计仿照Haskell中的Data.List。
 
 这是一个纯C项目，而非C++项目。
+
+## 计划中（暂时没有实现）
+
+- [X] ~~Shell's Sort~~
+- [X] ~~recursion Quick Sort~~
+- [X] ~~Merge Sort~~
+- [ ] 归并排序
