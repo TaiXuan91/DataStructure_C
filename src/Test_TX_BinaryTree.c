@@ -34,5 +34,6 @@ bool Test_TX_BinaryTree(){
     tree = TX_BinaryTree_Cut(root, left);
     TX_BinaryTree_Insert(root->right->left, left,tree);
     TX_BinaryTree_Show(root, 0);
+    printf("thread: node %d left is %d", tree->data.data.integer_value, tree->left->data.data.integer_value);
     return true;
 }
