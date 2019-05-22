@@ -9,4 +9,5 @@
 - [X] ~~Shell's Sort~~
 - [X] ~~recursion Quick Sort~~
 - [X] ~~Merge Sort~~
-- [ ] 归并排序
+- [X] Non-recursive Quick Sort
+- [ ] Binary Tree and traverse

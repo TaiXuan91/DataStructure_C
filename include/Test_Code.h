@@ -13,4 +13,7 @@ bool Test_TX_List();
 
 // Test the sort module.
 bool Test_TX_Sort();
+
+// Test the BinaryTree module
+bool Test_TX_BinaryTree();
 #endif
