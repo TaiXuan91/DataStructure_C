@@ -107,12 +107,12 @@ void TX_QuickSort(int *l, size_t length){
 // l+mid is the first element of the second part of l.
 void merge_two_list(int *l, size_t length, size_t mid, int *aux){
     if(length<=1)return;
-    for(int i=0; i<length; i++){
+    for(size_t i=0; i<length; i++){
         aux[i] = l[i];
     }
-    int i = 0;
-    int j = mid;
-    for(int shift=0; shift<length; shift++){
+    size_t i = 0;
+    size_t j = mid;
+    for(size_t shift=0; shift<length; shift++){
         if(i>=mid){
             l[shift]=aux[j];
             j++;

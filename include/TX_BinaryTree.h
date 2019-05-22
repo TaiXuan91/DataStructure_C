@@ -10,7 +10,7 @@
 // Inorder threaded binary tree
 typedef struct TX_BinaryTree_Tree{
     TX_Anytype_AnytypeElement data;
-    size_t deepth;
+    size_t deepth; //The root node of the root node is not updated. Don't use it.
     bool hasLeftChild;
     struct TX_BinaryTree_Tree *left;
     bool hasRightChild;
@@ -36,6 +36,9 @@ void TX_BinaryTree_Delete(TX_BinaryTree_Tree *root, TX_BinaryTree_Child lr);
 
 // Cut child from a tree
 TX_BinaryTree_Tree * TX_BinaryTree_Cut(TX_BinaryTree_Tree *root, TX_BinaryTree_Child lr);
+
+// Show Tree
+void TX_BinaryTree_Show(TX_BinaryTree_Tree *root,size_t indent);
 
 // Preorder Traverse Recursion
 void TX_BinaryTree_PreOrderTraverse(TX_BinaryTree_Tree *root);
