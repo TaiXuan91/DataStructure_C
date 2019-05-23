@@ -1,5 +1,6 @@
 #include <stddef.h>
 #include <stdbool.h>
+#include <stdlib.h>
 
 #include "TX_Sort.h"
 
@@ -143,4 +144,70 @@ void TX_MergeSort(int *l, size_t length, int* aux){
     TX_MergeSort(l,mid, aux);
     TX_MergeSort(l+mid,length-mid, aux+mid);
     merge_two_list(l, length, mid, aux);
+}
+
+// used in heap sort
+// small on the top
+// length in not max array length.
+// Here, the length is the number of element.
+// number start from 1.
+// void TX_Swim(int *l, size_t length, size_t k){
+//     if(k>length){
+//         return;
+//     }
+//     while(k>1 && l[k]>l[k/2]){
+//         int temp;
+//         temp = l[k/2];
+//         l[k/2] = l[k];
+//         l[k] = temp;
+//         k = k/2;
+//     }
+// }
+
+// used in heap sort
+void TX_Sink(int *l, size_t length, size_t k){
+    while(2*k+1<length){
+        int j = 2*k+1;
+        // big head.
+        // the bigger will up.
+        if (j+1<(int)length && l[j]<l[j+1]){
+            j = j+1;
+        }
+        if(l[k]<l[j]){
+            int temp;
+            temp = l[j];
+            l[j] = l[k];
+            l[k] = temp;
+            k = j;
+            continue;
+        }
+        break;
+    }
+}
+
+// reverse array
+// void TX_Reverse(int *l, size_t length,size_t last){
+//     int *aux = (int *)malloc(sizeof(int)*length);
+//     for(size_t i=0; i<=last; i++){
+//         aux[i] = l[last-i];
+//     }
+//     for(size_t i=0; i<=last; i++){
+//         l[i] = aux[i];
+//     }
+//     free(aux);
+// }
+
+// Heap Sort
+void TX_HeapSort(int *l, size_t length){
+    for(int k=(int)(length-1)/2;k>=0;k--){
+        TX_Sink(l,length,k);
+    }
+    int n = (int)(length-1);
+    while(n>0){
+        int temp = l[0];
+        l[0] = l[n];
+        l[n] = temp;
+        TX_Sink(l,n, 0);
+        n--;
+    }
 }

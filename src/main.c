@@ -8,8 +8,8 @@
 int main(){
     // Test_TX_Stack();
     // Test_TX_List();
-    // Test_TX_Sort();
-    Test_TX_BinaryTree();
+    Test_TX_Sort();
+    // Test_TX_BinaryTree();
     getchar();
     return 0;
 }

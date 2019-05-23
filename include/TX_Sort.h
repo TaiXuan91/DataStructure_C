@@ -32,5 +32,7 @@ void TX_QuickSort(int *l, size_t length);
 // Merge Sort
 void TX_MergeSort(int *l, size_t length, int* aux);
 
+// Heap Sort
+void TX_HeapSort(int *l, size_t length);
 
 #endif // TX_SORT

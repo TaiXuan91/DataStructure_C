@@ -59,5 +59,12 @@ bool Test_TX_Sort(){
     TX_MergeSort(myLinearList6, 20, aux);
     free(aux);
     showList(myLinearList6, 20);
+    int myLinearList7[] = {13, 11, 7, 9, 14, 18, 6, 0, 10, 8, 15, 19, 3, 16, 17, 4, 1, 12, 5, 2};;
+    printf("Heap sort\n");
+    printf("before--------\n");
+    showList(myLinearList7, 20);
+    printf("after---------\n");
+    TX_HeapSort(myLinearList7, 20);
+    showList(myLinearList7, 20);
     return true;
 }
