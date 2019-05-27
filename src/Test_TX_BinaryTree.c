@@ -34,6 +34,15 @@ bool Test_TX_BinaryTree(){
     tree = TX_BinaryTree_Cut(root, left);
     TX_BinaryTree_Insert(root->right->left, left,tree);
     TX_BinaryTree_Show(root, 0);
-    printf("thread: node %d left is %d", tree->data.data.integer_value, tree->left->data.data.integer_value);
+    printf("thread: node %d left is %d\n", tree->data.data.integer_value, tree->left->data.data.integer_value);
+    printf("begin traverse test!\n");
+    printf("level order\n");
+    TX_BinaryTree_LevelOrderTraverse(root);
+    printf("\npreorder\n");
+    TX_BinaryTree_PreOrderTraverse(root);
+    printf("\ninorder\n");
+    TX_BinaryTree_InOrderTraverse(root);
+    printf("\npostorder\n");
+    TX_BinaryTree_PostOrderTraverse(root);
     return true;
 }

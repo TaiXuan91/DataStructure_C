@@ -49,6 +49,9 @@ void TX_BinaryTree_InOrderTraverse(TX_BinaryTree_Tree *root);
 // Postorder Traverse Recursion
 void TX_BinaryTree_PostOrderTraverse(TX_BinaryTree_Tree *root);
 
+// level order
+void TX_BinaryTree_LevelOrderTraverse(TX_BinaryTree_Tree *root);
+
 // No recursion traverse
 
 #endif

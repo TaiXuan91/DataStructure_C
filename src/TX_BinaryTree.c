@@ -5,6 +5,7 @@
 
 #include "TX_Anytype.h"
 #include "TX_BinaryTree.h"
+#include "TX_Stack.h"
 
 
 // Init 
@@ -151,10 +152,149 @@ void TX_BinaryTree_Show(TX_BinaryTree_Tree *root,size_t indent){
 }
 
 // Preorder Traverse Recursion
-void TX_BinaryTree_PreOrderTraverse(TX_BinaryTree_Tree *root);
+void TX_BinaryTree_LevelOrderTraverse(TX_BinaryTree_Tree *root){
+    TX_Stack_Stack *s1 = TX_Stack_Init();
+    TX_Stack_Stack *s2 = TX_Stack_Init();
+    TX_Anytype_AnytypeElement e;
+    e.type = TX_VOID_POINTER;
+    if(root!=NULL){
+        e.data.void_pointer_value = root;
+        TX_Stack_Push(s1, e);
+    }
+    else{return;}
+    printf("traverse the tree:\n");
+    while (!TX_Stack_IsEmpty(s1))
+    {
+        while(!TX_Stack_IsEmpty(s1)){
+            e = TX_Stack_Pop(s1);
+            TX_BinaryTree_Tree *current = (TX_BinaryTree_Tree *)e.data.void_pointer_value;
+            printf(" %d ", current->data.data.integer_value);
+            if(current->hasLeftChild){
+                e.data.void_pointer_value = current->left;
+                TX_Stack_Push(s2, e);
+            }
+            if(current->hasRightChild){
+                e.data.void_pointer_value = current->right;
+                TX_Stack_Push(s2, e);
+            }
+        }
+        while(!TX_Stack_IsEmpty(s2)){
+            e = TX_Stack_Pop(s2);
+            TX_Stack_Push(s1, e);
+        }
+    }
+    TX_Stack_Destroy(s1);
+    TX_Stack_Destroy(s2);
+}
+
+
+void TX_BinaryTree_PreOrderTraverse(TX_BinaryTree_Tree *root){
+    TX_Stack_Stack *s1 = TX_Stack_Init();
+    TX_Anytype_AnytypeElement e;
+    e.type = TX_VOID_POINTER;
+    if(root!=NULL){
+        e.data.void_pointer_value = root;
+        TX_Stack_Push(s1, e);
+    }
+    else{return;}
+    printf("traverse the tree:\n");
+    while (!TX_Stack_IsEmpty(s1))
+    {
+        e = TX_Stack_Pop(s1);
+        TX_BinaryTree_Tree *current = (TX_BinaryTree_Tree *)e.data.void_pointer_value;
+        printf(" %d ", current->data.data.integer_value);
+        if(current->hasRightChild){
+                e.data.void_pointer_value = current->right;
+                TX_Stack_Push(s1, e);
+        }
+        if(current->hasLeftChild){
+                e.data.void_pointer_value = current->left;
+                TX_Stack_Push(s1, e);
+        }
+    }
+    TX_Stack_Destroy(s1);
+}
 
 // Inorder Traverse Recursion
-void TX_BinaryTree_InOrderTraverse(TX_BinaryTree_Tree *root);
+void TX_BinaryTree_InOrderTraverse(TX_BinaryTree_Tree *root){
+    TX_Stack_Stack *s1 = TX_Stack_Init();
+    TX_Anytype_AnytypeElement e;
+    e.type = TX_VOID_POINTER;
+    TX_BinaryTree_Tree *current;
+    if(root==NULL){
+       return;
+    }
+    current = root;
+    e.data.void_pointer_value = current;
+    TX_Stack_Push(s1, e);
+    while(current->hasLeftChild){
+    e.data.void_pointer_value = current;
+    TX_Stack_Push(s1, e);
+    current = current->left;
+    }
+    printf("traverse the tree:\n");
+    while (!TX_Stack_IsEmpty(s1))
+    {
+        e = TX_Stack_Pop(s1);
+        current = (TX_BinaryTree_Tree *)e.data.void_pointer_value;
+        printf(" %d ", current->data.data.integer_value);
+        if(current->hasRightChild){
+            e.data.void_pointer_value = current->right;
+            TX_Stack_Push(s1, e);
+            while(current->hasLeftChild){
+                current = current->left;
+                e.data.void_pointer_value = current;
+                TX_Stack_Push(s1, e);
+            }
+        }
+    }
+    TX_Stack_Destroy(s1);
+}
 
 // Postorder Traverse Recursion
-void TX_BinaryTree_PostOrderTraverse(TX_BinaryTree_Tree *root);
+void TX_BinaryTree_PostOrderTraverse(TX_BinaryTree_Tree *root){
+    TX_Stack_Stack *s1 = TX_Stack_Init();
+    TX_Stack_Stack *s2 = TX_Stack_Init();
+    TX_Anytype_AnytypeElement e1;
+    e1.type = TX_VOID_POINTER;
+    TX_Anytype_AnytypeElement e2; //tag left visited
+    e2.type = TX_BOOL;
+    TX_BinaryTree_Tree *current;
+    current = root;
+    while(current != NULL || !TX_Stack_IsEmpty(s1)){
+        if(current != NULL){
+            while(current->hasLeftChild){
+            e1.data.void_pointer_value = current;
+            e2.data.bool_value = false;
+            TX_Stack_Push(s1, e1);
+            TX_Stack_Push(s2, e2);
+            current = current->left;
+            }
+            if(current->hasRightChild){
+            e1.data.void_pointer_value = current;
+            e2.data.bool_value = true;
+            TX_Stack_Push(s1, e1);
+            TX_Stack_Push(s2, e2);
+            current = current->right;
+            continue;
+            }
+        }
+        else{
+            e1 = TX_Stack_Pop(s1);
+            e2 = TX_Stack_Pop(s2);
+            current = (TX_BinaryTree_Tree *)e1.data.void_pointer_value;
+            if(!(e2.data.bool_value)){
+                if(current->hasRightChild){
+                    e1.data.void_pointer_value = current;
+                    e2.data.bool_value = true;
+                    TX_Stack_Push(s1, e1);
+                    TX_Stack_Push(s2, e2);
+                    current = current->right;
+                    continue;
+                }
+            }
+        }
+        printf(" %d ", current->data.data.integer_value);
+        current = NULL;
+    }
+}
